@@ -93,14 +93,22 @@ module.exports.issue = (req, res) => {
     medicine.qty = req.body.qty;
 
     console.log(req.body);
-
-    Medicine.findByIdAndUpdate(req.body._id, { $inc:{qty:-1*medicine.qty} }, { new: true }, (err, docs) => {
-        if (!err) { 
-            //qty=qty-quantity;
-            res.send(docs); 
+    Medicine.findById(req.body._id , (err, docs) =>{
+        if(docs.qty>=medicine.qty){
+            Medicine.findByIdAndUpdate(req.body._id, { $inc:{qty:-1*medicine.qty} }, { new: true }, (err, docs) => {
+                if (!err) { 
+                    //qty=qty-quantity;
+                    res.send(docs); 
+                }
+                else { console.log('Error in Updating Medicine Records :' + JSON.stringify(err, undefined, 2)); }
+            });
+        }else{
+            console.log('Quantity is not enough');
+                res.status(500).json("quantity not enough");
         }
-        else { console.log('Error in Updating Medicine Records :' + JSON.stringify(err, undefined, 2)); }
     });
+
+   
 }
 
 module.exports.restock = (req, res) => {

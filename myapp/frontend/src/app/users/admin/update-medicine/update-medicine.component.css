@@ -12,6 +12,19 @@ input[type=text], select, textarea {
   resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
 }
 
+input[type=number], select, textarea {
+  width: 90%; /* Full width */
+  padding: 15px; /* Some padding */  
+  border: 1px solid rgb(13, 144, 219); /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: content-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  margin-left:10px;
+  line-height: 10px;
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
 label{
   font-family: 'Roboto Medium', sans-serif;
   font-size: 20px;
@@ -84,6 +97,7 @@ img {
   border-radius: 5px;
   background-color: #e1ebf1ec;
   padding: 20px;
+  margin-bottom:15px;
 }
 
 .dropbtn {

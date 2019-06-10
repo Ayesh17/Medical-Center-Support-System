@@ -6,43 +6,40 @@
 }
 </style>
 <body>
+    <br><br>
    
 <div class="row">
   <div class="column">
     <img src="../../../assets/Pharmacist.jpg"style="width:100%;">
   </div>
   <div class="column" >
-
-    <br><br><br>
-
-    <section style="background-color:#EBF5FB  ;">
-      <h3>View Prescription</h3>
-      <p>Go to view the doctor's prescription of the given patient.</p>
-      <button style="width:160px" mat-raised-button (click)="OpenDialogPrescription()">View</button>
-    </section>
+      
+      <section style="background-color:#EBF5FB  ;">
+          <h3>View Patients' Records and Issue Medicine</h3>
+          <p>Go to view the patients' records and issue medicine to the patients who got medicine from a doctor in Medical Centre.</p>
+          <button style="width:160px" mat-raised-button [routerLink]="['/records']">View</button>
+        </section>
 
     <section style="background-color:#EBF5FB  ;">
-      <h3>Check Availability and Issue Medicine</h3>
+      <h3>Check Availability of the Medicine</h3>
       <p>Check whether the prescribed medicine is available at the moment and Issue.</p>
-      <button style="width:160px" mat-raised-button [routerLink] = "['/prescription']">Issue Medicine</button>
+      <button style="width:160px" mat-raised-button [routerLink] = "['/medList']">Medicine</button>
     </section>
+
+    <section style="background-color:#EBF5FB  ;">
+        <h3>Issue Medicine to the outsiders</h3>
+        <p>Issue Medicine to the outside patients who didn't get medicine from a doctor in Medical Centre</p>
+        <button style="width:160px" mat-raised-button [routerLink] = "['/issueMedOutsiders']">Issue Medicine</button>
+      </section>
 
     <section style="background-color:#EBF5FB  ;">
         <h3>Restock Medicine</h3>
         <p>When new medicine stocks arrive restock them</p>
         <button style="width:160px" mat-raised-button [routerLink] = "['/restock']">Restock Medicine</button>
       </section>
-
-    <section style="background-color:#EBF5FB  ;">
-      <h3>Calculate Total Fee</h3>
-      <p>Calculate total fee of the prescribed medicine of the given patient including Doctor's charge.</p>
-      <button style="width:160px" mat-raised-button (click)="OpenDialogFee()">Calculate</button>
-    </section>
-   
+  
   </div>
-
-
-<!-- <app-patient-record></app-patient-record> -->
-
-
 </div>
+<br><br>
+<!-- <div ><app-patient-record></app-patient-record></div> -->
+

@@ -20,6 +20,7 @@ router.post('/patientRecord',ctrlPatientRecord.regRecord);
 router.get('/patientRecord',ctrlPatientRecord.getRegRecord);
 router.get('/patientRecordList/:date',ctrlPatientRecord.getRegRecordForList);
 router.delete('/deletePatientRecord/:_id',ctrlPatientRecord.deletePatientRecord);
+router.get('/getPatientsRecordById/:id', ctrlPatientRecord.getPatientsRecordById);
 
 
 router.post('/doctor',ctrlDocter.doctorRegister);

@@ -5,6 +5,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { MedicineService } from '../../../shared/medicine.service';
 import { Medicine} from '../../../shared/medicine.model';
 import { ActivatedRoute } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { Router } from '@angular/router';
 
 
 declare var M: any;
@@ -15,7 +17,7 @@ declare var M: any;
 })
 export class UpdateMedicineComponent implements OnInit {
 
-  constructor(private medicineService: MedicineService, private route:ActivatedRoute){
+  constructor(private medicineService: MedicineService, private route:ActivatedRoute, private router: Router){
   
   }
 
@@ -63,7 +65,7 @@ export class UpdateMedicineComponent implements OnInit {
     });*/ 
     this.medicineService.editMedicine({...form.value, _id:this._id}).subscribe(res => {
       if(confirm('Successfully updated.Do you want to go back?')==true){
-    
+        this.router.navigate(['/admin']);
       
       }
     //this.resetForm();

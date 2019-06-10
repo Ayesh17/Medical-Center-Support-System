@@ -84,6 +84,7 @@ input[type=text], select, textarea {
     border-radius: 5px;
     background-color: #e1ebf1ec;
     padding: 20px;
+    margin-bottom: 25px;
   }
   
   .dropbtn {

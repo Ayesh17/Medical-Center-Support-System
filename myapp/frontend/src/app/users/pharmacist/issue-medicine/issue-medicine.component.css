@@ -30,9 +30,15 @@ label{
 }
 
 h1{
-margin-left:180px;
+margin-left:600px;
 margin-bottom:50px;
 }
+
+h3{
+  margin-left:50px;
+  margin-bottom:40px;
+  }
+
 /* Style the submit button with a specific background color etc */
 button[type=submit] {
   width:80px;
@@ -81,9 +87,12 @@ img {
 }
 /* Add a background color and some padding around the form */
 .container {
+  width: 90%;
   border-radius: 5px;
   background-color: #e1ebf1ec;
-  padding: 20px;
+  padding: 10px;
+  margin-bottom: 25px;
+
 }
 
 .dropbtn {

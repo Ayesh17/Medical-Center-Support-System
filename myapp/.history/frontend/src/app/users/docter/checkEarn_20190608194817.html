@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Today Income</h1>
+<div mat-dialog-content>
+<mat-form-field>
+  <input matInput  type="date" [(ngModel)]="userDate" (change)="onChange()" name="userDate" value="value">
+</mat-form-field>
+ <table>
+   <thead>
+     <tr>
+       <td></td>
+       <td style='padding: 10px'>Patient</td>
+       <td style='padding: 10px'>Cost</td>
+     </tr>
+   </thead>
+   <tr *ngFor="let  precord of Precords">
+     <td></td>
+    <td style='padding: 10px;'>{{precord.name}}</td>
+    <td style='padding: 10px;'>{{precord.cost}}</td>  
+  </tr>
+    <tr><td><h5>Total Cost</h5></td><td></td><td>{{TotalEarn}}</td></tr>
+ </table>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="">Ok</button>
+</div>

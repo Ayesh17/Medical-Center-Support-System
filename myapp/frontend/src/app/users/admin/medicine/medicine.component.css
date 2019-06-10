@@ -17,4 +17,5 @@ table {
   flex-direction: column;
   max-height: 800px;
   min-width: 100%;
+  margin-bottom:15px;
 }

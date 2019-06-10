@@ -82,6 +82,24 @@ module.exports.deleteDoctor=(req,res)=>{
     });
 } */
 
+module.exports.getPatientsRecordById=(req, res) => {
+    console.log("in side getPatientsRecord");
+    console.log(req.params);
+
+    Precord.findById(req.params.id, (err, docs) => {
+        console.log("fdfd");
+        if (!err) { res.send(docs); }
+        else {
+            console.log('Error in Retriving Pateints Records By ID:' + JSON.stringify(err, undefined, 2));
+            res.status(400).send(JSON.stringify("error"));
+        }
+    });
+
+    console.log("f2222dfd");
+
+
+}
+
 
 module.exports.deletePatientRecord=(req,res)=>{
 

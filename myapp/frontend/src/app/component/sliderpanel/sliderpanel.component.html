@@ -14,8 +14,11 @@
 
 <mdb-carousel [isControls]="true" class="carousel slide" [animation]="'slide'">
   <mdb-carousel-item>
-      <div class="container">
-          <div class="a"><h1>Be Healthy and Be Happy</h1><br><br></div>
+
+      <div class="container" style="width: 1500px ; height :600px">
+
+          <div class="a" style="font-family: 'Comic Sans MS', cursive, sans-serif ;"><h1>Be Healthy and Be Happy</h1><br><br></div>
+
           <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
@@ -23,6 +26,7 @@
               <li data-target="#myCarousel" data-slide-to="1"></li>
               <li data-target="#myCarousel" data-slide-to="2"></li>
               <li data-target="#myCarousel" data-slide-to="3"></li>
+              <li data-target="#myCarousel" data-slide-to="4"></li>
             </ol>
 
             <!-- Wrapper for slides -->
@@ -36,12 +40,17 @@
               </div>
 
               <div class="item">
-                <img src="../../../assets/03.jpg" alt="03" style="width:100%;">
+                  <img src="../../../assets/03.jpg" alt="03" style="width:100%;">
+                </div>
+
+              <div class="item">
+                <img src="../../../assets/04.jpg" alt="04" style="width:100%;">
               </div>
 
               <div class="item">
-                  <img src="../../../assets/04.jpg" alt="04" style="width:100%;">
+                  <img src="../../../assets/05.jpg" alt="05" style="width:100%;">
                 </div>
+
             </div>
 
             <!-- Left and right controls -->
@@ -57,37 +66,39 @@
         </div>
 
     <div class="carousel-caption">
-      <h1 style="font-family: 'Times New Roman', Times, serif;">We Care Always</h1>
+      <!-- <h1 style="font-family: 'Times New Roman', Times, serif;">We Care Always</h1> -->
 
       <div class="row">
         <div class="col-md-3">
         </div>
-        <div class="col-md-6">
-          <div style="border-style:solid; border-radius:5px">
-            <img src="assets/img/logo.png">
+        <div class="col-md-6 style:height=200px;">
+          <div style="border-style:solid; border-radius:10px; border-color:beige; ">
+            <h1 style="font-family: 'Times New Roman', Times, serif;font-weight: bolder;font-size:40px; color: rgb(234, 234, 241);text-shadow: 2px 2px 8px rgb(12, 1, 1);">We Care Always</h1>
+            <img style=" border:2px 2px 2px 2px  black" src="assets/img/logo.png">
             <br><br>
           </div>
         </div>
         <div class="col-md-3"></div>
       </div>
       <br>
-      <ul>
+      <!-- <ul> -->
           <li class="btn">
-            <button mat-raised-button color="primary" (click)="openDialogSignIn()">Sign in</button>
+            <button mat-raised-button color="primary" style="width:120px"(click)="openDialogSignIn()">Sign in</button>
           </li>
           <li class="btn">
-            <button mat-raised-button color="primary" (click)="openDialogSignUp()">Sign Up</button>
+            <button mat-raised-button color="primary" style="width:120px"(click)="openDialogSignUp()">Sign Up</button>
           </li>
-      </ul>
+      <!-- </ul> -->
     </div>
   </mdb-carousel-item>
 </mdb-carousel>
 
 <div class="container">
+  
     <div class="row">
       <div class="col-md-3"></div>
       <div class="col-md-6">
-        <div class = "a"><h2>Available Doctor's Details</h2><br></div>
+        <div class = "a" style="font-family: 'Times New Roman', Times, serif;"><h2>Available Doctor's Details</h2><br></div>
         <table class="responsive-table highlight">
           <thead>
             <tr>
@@ -115,9 +126,9 @@
           </tr> -->
 
           <tr *ngFor="let  doctor of Doctors">
-            <div class="card row" style="padding:20px">
+            <div class="card row" style="padding:20px" >
               <div class="col-md-3">
-                <div class="row"><img style="width:80pxx;height:100px;" src={{doctor.image}}></div>
+                <div class="row"><img style="width:80px;height:100px;" src={{doctor.image}}></div>
                 <div class="row">{{doctor.fullname}}</div>
               </div>
               <div class="col-md-4">{{doctor.checkuptype}}</div>
@@ -133,8 +144,5 @@
 
       </div>
       <div class="col-md-3"></div>
-
-
-
     </div>
 </div>

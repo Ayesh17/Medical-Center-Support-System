@@ -1,69 +1,134 @@
-<div class= "row">
+<div class="row">
   <div class="col-md-12">
     <div class="container">
-      <div class="row"><h1>Issue Medicine</h1>
+      <div class="row">
+        <h1>Medicine </h1>
 
-        <div class="col-md-7">
+        <div class="col-md-4">
 
-          <body ng-app="mainAPP">
+            <h3>Prescription</h3>
 
-            <div class="row col-md-12">  
-                <div class="label col-md-4 ">
-                  <label>Select Medicine</label>
-                </div>
-                <div class="input-field col-md-8 ">
-                  <input type="text" [(ngModel)]="serach">
-                </div>
+          <div class="row col-md-12">
+            <div class="label col-md-4 ">
+              <label>Name: </label>
             </div>
-
-
-            <div ng-controller="Medicine">
-              <ul>                
-                <li *ngFor="let med of medicineService.medi | filter:serach">
-                  {{ med.name + ' '  + med.dose + med.unit + ' Rs:' + med.price}}  
-                  <a class="action-btn" (click)="onAdd(med)">
-                      <i class="material-icons">add</i>
-                    </a> 
-                    
-                </li>
-              </ul>
+            <div class="label col-md-4 ">
+              <label style="font-family: 'Roboto Medium', sans-serif; font-size: 15px; margin-left:15px;">{{x.name}}</label>
             </div>
+          </div>
 
-            <div class="row col-md-12">  
-                <div class="label col-md-4 ">
-                  <label name="cur">Available Quantity </label>
-                </div>
-                <div class="input-field col-md-8 ">
-                  <label name="curQuantity"> {{medicineService.selectedMedicine.qty}} </label>
-                </div>
+          <div class="row col-md-12">
+            <div class="label col-md-4 ">
+              <label>Age: </label>
             </div>
-
-            <div class="row col-md-12">  
-                <div class="label col-md-4 ">
-                  <label name="medList">{{medicineService.selectedMedicine.name}}</label>
-                </div>
-                <div class="input-field col-md-8 ">
-                  <input type="text" name="quantity" #name="ngModel" placeholder="Enter the quantity" [(ngModel)]="medicineService.selectedMedicine.qty" required>
-                </div>
+            <div class="label col-md-4 ">
+              <label style="font-family: 'Roboto Medium', sans-serif; font-size: 15px; margin-left:15px;">{{x.age}}</label>
             </div>
+          </div>
 
-            <div class="row col-md-12">
-                <button type="submit" (click)="onSubmit(med, medicineService.selectedMedicine._id)">Issue</button>
+          <div class="row col-md-12">
+            <div class="label col-md-4 ">
+              <label style="margin-bottom: 5px;">Selected: </label>
             </div>
+            <div class="label col-md-4 ">
+                <label
+                  style="font-family: 'Roboto Medium', sans-serif; font-size: 15px; margin-bottom: 5px;">{{x.medicenList1}}</label>
+              </div>
+          </div>
+        
+          <div class="row col-md-12">
+            <div class="label col-md-4 ">
+              <label
+                style="font-family: 'Roboto Medium', sans-serif; font-size: 15px; margin-left:150px; margin-top: 5px;margin-bottom: 5px;">{{x.medicenList2}}</label>
+            </div>
+          </div>
+          <div class="row col-md-12">
+            <div class="label col-md-4 ">
+              <label
+                style="font-family: 'Roboto Medium', sans-serif; font-size: 15px; margin-left:150px; margin-top: 5px;margin-bottom: 5px;">{{x.medicenList3}}</label>
+            </div>
+          </div>
+          <div class="row col-md-12">
+            <div class="label col-md-4 ">
+              <label
+                style="font-family: 'Roboto Medium', sans-serif; font-size: 15px; margin-left:150px; margin-top: 5px;margin-bottom: 5px;">{{x.medicenList4}}</label>
+            </div>
+          </div>
+          <div class="row col-md-12">
+            <div class="label col-md-4 ">
+              <label
+                style="font-family: 'Roboto Medium', sans-serif; font-size: 15px; margin-left:150px; margin-top: 5px;margin-bottom: 5px;">{{x.medicenList5}}</label>
+            </div>
+          </div>
 
-          </body>
-      
         </div>
 
-        <div class="col-md-5">
-          <img src="../../../assets/med1.jpg">
+        <div class="col-md-4">
+            <h3  style="margin-left:150px;" >Issue Medicine</h3>
+
+          <div class="row col-md-12">
+            <div class="label col-md-5 ">
+              <label>Select Medicine</label>
+            </div>
+            <div class="input-field col-md-7 ">
+              <input type="text" [(ngModel)]="serach">
+            </div>
+          </div>
+
+          <ul>
+            <li *ngFor="let med of medicineService.medi | filter:serach">
+              {{ med.name + ' '  + med.dose + med.unit + ' ' +med.type}}
+              <a class="action-btn" (click)="onAdd(med)">
+                <i class="material-icons">add</i>
+              </a>
+
+            </li>
+          </ul>
+
+
+          <div class="row col-md-12">
+            <div class="label col-md-6 ">
+              <label name="cur">Selected Medicine</label>
+            </div>
+            <div class="input-field col-md-6 ">
+              <label name="curQuantity"> {{medicineService.selectedMedicine.name +' '+ medicineService.selectedMedicine.dose + medicineService.selectedMedicine.unit}} </label>
+            </div>
+          </div>
+
+          <div class="row col-md-12">
+              <div class="label col-md-6 ">
+                  <label name="cur">Quantity </label>
+                </div>
+            <div class="input-field col-md-6 ">
+              <input type="text" name="quantity" #name="ngModel" placeholder="Enter the quantity"
+                [(ngModel)]="medicineService.selectedMedicine.qty" required>
+            </div>
+          </div>
+
+          <div class="row col-md-12">
+            <button type="submit" (click)="onSubmit(med, medicineService.selectedMedicine._id)">Issue</button>
+          </div>
+
+
+
         </div>
-    
+
+        <div class="col-md-4">
+          <ul>
+            <h3>Selected Medicine</h3>
+            <li *ngFor="let med of issuedMedicine">
+              {{ med.name + ' '  + med.dose + med.unit + ' Qty: ' +med.qty}}
+            </li>
+           
+          </ul>
+
+          <!-- <button (click)="print()">Print</button> -->
+
+        </div>
+
       </div>
- 
+
     </div>
   </div>
 
 </div>
-
-

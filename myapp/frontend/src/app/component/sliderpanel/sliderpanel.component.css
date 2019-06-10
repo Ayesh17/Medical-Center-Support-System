@@ -8,6 +8,7 @@
     padding: 2cm
   }
 
+
   .example-container {
     width: 500px;
     height: 300px;
@@ -20,7 +21,8 @@
     align-items: center;
     justify-content: center;
   }
-  
+
+ 
   .example-sidenav {
     padding: 20px;
   }

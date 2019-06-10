@@ -1,0 +1,71 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="container">
+            <div class="row">
+                <h1>Issue Medicine</h1>
+
+                <div class="col-md-6">
+                    <h3>Select Medicine</h3>
+                    <div class="row col-md-12">
+                        <div class="label col-md-5 ">
+                            <label>Medicine</label>
+                        </div>
+                        <div class="input-field col-md-7 ">
+                            <input type="text" [(ngModel)]="serach">
+                        </div>
+                    </div>
+
+                    <ul>
+                        <li *ngFor="let med of medicineService.medi | filter:serach">
+                            {{ med.name + ' ' + med.dose + med.unit + ' Rs:' + med.price}}
+                            <a class="action-btn" (click)="onAdd(med)">
+                                <i class="material-icons">add</i>
+                            </a>
+
+                        </li>
+                    </ul>
+
+
+                    <div class="row col-md-12">
+                        <div class="label col-md-5 ">
+                            <label name="cur">Selected Medicine </label>
+                        </div>
+                        <div class="input-field col-md-7 ">
+                            <label name="curQuantity"> {{medicineService.selectedMedicine.name +' '+ medicineService.selectedMedicine.dose + medicineService.selectedMedicine.unit}} </label>
+                        </div>
+                    </div>
+
+                    <div class="row col-md-12">
+                        <div class="label col-md-5 ">
+                            <label name="medList">Quantity</label>
+                        </div>
+                        <div class="input-field col-md-7 ">
+                            <input type="text" name="quantity" #name="ngModel" placeholder="Enter the quantity" [(ngModel)]="medicineService.selectedMedicine.qty" required>
+                        </div>
+                    </div>
+
+                    <div class="row col-md-12">
+                        <button type="submit" (click)="onSubmit(med, medicineService.selectedMedicine._id)">Issue</button>
+                    </div>
+
+
+
+                </div>
+
+                <div class="col-md-6" style="margin-top:20px">
+                    <ul>
+                        <h3>Selected Medicine List</h3>
+                        <li *ngFor=" let med of issuedMedicine ">
+                            {{ med.name + ' ' + med.dose + med.unit + ' Unit Price = Rs:' + med.price + ' Qty: ' +med.qty}}
+                        </li>
+                        <h4>{{'Total Price: '+total()}}</h4>
+                    </ul>
+
+                    <!-- <button (click)="print() ">Print</button> -->
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>

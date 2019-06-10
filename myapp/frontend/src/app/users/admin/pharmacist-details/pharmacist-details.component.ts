@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { PatientRecordClass } from 'src/app/shared/patientRecords/patient-record-class.model';
 import { PatientRecordsService } from 'src/app/shared/patientRecords/patient-records.service';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-pharmacist-details',
@@ -15,35 +16,23 @@ export class PharmacistDetailsComponent implements OnInit {
   // dataSource :any;
   public dataSource = new MatTableDataSource<PatientRecordClass>();
  
-  constructor(private  patientRecordService:  PatientRecordsService,) {}
-  displayedColumns: string[] = ['name','date','age','description','actions'];
-  // dataSource = new MatTableDataSource(ELEMENT_DATA);
-
+ 
+  constructor(private  patientRecordService:  PatientRecordsService, private userService: UserService) {}
+  displayedColumns: string[] = ['name','date','age','actions'];
+  
   
  
    ngOnInit() {
 
-    this.getPatientRecord();
-    //  this.patientRecordService.getPatientRecordList().subscribe((result)=>{    
-    //   this.dataSource  =  result.body;
+    this. getPharamasictRecord();
+    
       
   }
 
-  // getPatientRecord(){
-  //   this.patientRecordService.getPatientRecordList().subscribe((res)=>{
-  //     this.dataSource.data = res as PatientRecordClass[];
-  //   })
-  //   //   this.dataSource = res;
-  //   //   console.log(this.dataSource);
-  //   // },error =>{
-  //   //   console.log(error);
+  
 
-  //   // })
-
-  // }
-
-  getPatientRecord() {
-    this.patientRecordService.getPatientRecordList().subscribe((res) => {
+  getPharamasictRecord() {
+    this.userService.getPharmasictstDetails().subscribe((res) => {
 
       this.dataSource.data = res as PatientRecordClass[];
     });
@@ -51,14 +40,14 @@ export class PharmacistDetailsComponent implements OnInit {
 
 
 
-  deletePatientRecord(patientRecords: PatientRecordClass) {
-    console.log(patientRecords);
-    if (confirm('Are you sure to delete this record?') == true) {
-      this.patientRecordService.deletePatientRecord(patientRecords).subscribe((res) => {
-        this.getPatientRecord();
-      });
-    }
-  }
+  // deletePatientRecord(patientRecords: PatientRecordClass) {
+  //   console.log(patientRecords);
+  //   if (confirm('Are you sure to delete this record?') == true) {
+  //     this.patientRecordService.deletePatientRecord(patientRecords).subscribe((res) => {
+  //       this.getPatientRecord();
+  //     });
+  //   }
+  // }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }

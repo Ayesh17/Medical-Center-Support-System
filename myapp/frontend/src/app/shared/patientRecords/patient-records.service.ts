@@ -8,6 +8,10 @@ import { PatientRecordClass } from './patient-record-class.model';
   providedIn: 'root'
 })
 export class PatientRecordsService {
+  selectedPatientRecords: PatientRecordClass;
+  records: PatientRecordClass[];
+
+  readonly baseURL1= 'http://localhost:3000/api/getPatientsRecordById'
 
 
   selectedPatientRecordClass: PatientRecordClass = {
@@ -49,6 +53,14 @@ export class PatientRecordsService {
       console.log(' get patient record list fn');
       return this.http.get(environment.apiBaseUrl + '/patientRecord');
   }
+
+  getPatientRecordById(_id:string) {
+    console.log(' get patient record By Id');
+    let url = this.baseURL1 + '/' + _id;
+    console.log('url', url)
+    return this.http.get(this.baseURL1 + '/' + _id);
+}
+
 
 
   deletePatientRecord(patientRecordClass: PatientRecordClass) {
